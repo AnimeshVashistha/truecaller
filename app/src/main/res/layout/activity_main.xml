@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+  <android.support.design.widget.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <android.support.design.widget.TextInputEditText
+          android:hint="Name"
+          android:textSize="20dp"
+          android:id="@+id/txtName"
+
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+  </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:hint="Email"
+            android:textSize="20dp"
+            android:id="@+id/txtEmail"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:hint="Phone"
+            android:textSize="20dp"
+            android:id="@+id/txtPhone"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:hint="Group"
+            android:textSize="20dp"
+            android:id="@+id/txtGroup"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+    <RelativeLayout
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+
+        android:background="@color/colorAccent"
+        android:textColor="#ffff"
+        android:onClick="save"
+        android:text="SAVE"
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:background="@color/colorAccent"
+            android:textColor="#ffff"
+            android:onClick="cancel"
+            android:text="CANCEL"
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
