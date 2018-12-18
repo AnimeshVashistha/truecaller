@@ -1,11 +1,10 @@
 package com.example.animesh.truecaller.activity;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,18 +12,19 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.animesh.truecaller.R;
-import com.example.animesh.truecaller.db.DBHelper2;
+import com.example.animesh.truecaller.db.DbHelper;
 import com.example.animesh.truecaller.model.TrueCaller;
 
 public class MainActivity extends AppCompatActivity {
+    private static String TAG = MainActivity.class.getSimpleName();
 
     TextInputEditText name, email, phone, group; //It can be different than the id
-   // String NAME , EMAIL,PHONE,GROUP;
+    // String NAME , EMAIL,PHONE,GROUP;
 
-    DBHelper2 dbHelper2;
+    DbHelper dbHelper2;
 
     //TrueCaller trueCaller;
-    Context context ;
+    Context context;
     SQLiteDatabase db;
 
     @Override
@@ -40,14 +40,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menulist,menu);
+        getMenuInflater().inflate(R.menu.menulist, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -55,33 +51,37 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (item.getItemId()==R.id.save)
-        {
-            Toast.makeText(this,"Save is selected",Toast.LENGTH_SHORT).show();
-        }
-        else if(item.getItemId()==R.id.help)
-        {
-            Toast.makeText(this,"Help is selected",Toast.LENGTH_SHORT).show();
+        if (item.getItemId() == R.id.save) {
+            Toast.makeText(this, "Save is selected", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == R.id.help) {
+            Toast.makeText(this, "Help is selected", Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
     }
+
     public void save(View view) {
 
-        String NAME =name.getText().toString();
-        String EMAIL =email.getText().toString();
-        String PHONE =phone.getText().toString();
-        String GROUP =group.getText().toString();
+        String mName = name.getText().toString();
+        String mEmail = email.getText().toString();
+        String mPhone = phone.getText().toString();
+        String mGroup = group.getText().toString();
 
-Log.e("name",NAME);
-        Log.e("name",EMAIL);
-        Log.e("name",PHONE);
-        Log.e("name",GROUP);
+        Log.d(TAG, "[Values-->]" + mName + "::" + mEmail + "::" + mPhone + "::" + mGroup);
 
-       // trueCaller=new TrueCaller(NAME,EMAIL,PHONE,GROUP);
+        // trueCaller=new TrueCaller(NAME,EMAIL,PHONE,GROUP);
         // truecaller object must be unique  and have to with Constructor of class
+        try {
 
-    dbHelper2.insertData(new TrueCaller(NAME,EMAIL,PHONE,GROUP));
+            TrueCaller trueCaller = new TrueCaller(mName, mEmail, mPhone, mGroup);
+
+            dbHelper2.insertData(trueCaller);
+
+        } catch (Exception e) {
+            Log.d(TAG, "Error in saving" + e.getCause());
+        }
+
+
     }
 
     public void cancel(View view) {

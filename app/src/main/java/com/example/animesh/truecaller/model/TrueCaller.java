@@ -2,9 +2,12 @@ package com.example.animesh.truecaller.model;
 
 public class TrueCaller {
 
-    private String name,email,phone,group;
+    private String name, email, phone, group;
+    private int id;
 
-    public TrueCaller(String name, String email, String phone, String group) {
+
+    public TrueCaller(int id, String name, String email, String phone, String group) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -43,13 +46,13 @@ public class TrueCaller {
         this.group = group;
     }
 
-    @Override
-    public String toString() {
-        return "TrueCaller{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", group='" + group + '\'' +
-                '}';
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 }
